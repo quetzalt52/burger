@@ -1,0 +1,64 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+
+.mainPage {
+	padding-top: 45px;
+	background-color: #FFC107;
+	 width: 100%;
+	 height: auto;
+}
+
+.mainPage p {
+	font-family: 'Roboto', sans-serif;
+	font-family: 'Sedgwick Ave Display', cursive;
+	font-family: 'Indie Flower', cursive;
+	color: #f30c46;
+	font-size: 350%;
+	text-align: center;
+	padding-top: 25px;
+
+}
+
+img {
+    display: block;
+    margin: auto;
+    width: 40%;
+    height: 45%;
+    border: 1px solid red;
+
+}
+
+textarea{
+	width: 15%;
+	height: 50px;
+	padding: 15px;
+	padding-left: 150px;
+	border: 2px solid red;
+	
+	margin-left: 500px;
+	margin-bottom: 25px;
+	font-size: 16px;
+}
+.btn {
+	margin-top: 10px;
+	padding-top: 15px;
+	border: none;
+	width: 50%;
+}
+
+
+@media screen and (max-width: 991px){
+	.mainPage {
+		width: 80%;
+	}
+
+} /*end of 991 media px*/
+
+@media screen and (max-width: 767px){
+	.mainPage {
+		width: 100%;
+	}
+}
