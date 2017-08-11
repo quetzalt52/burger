@@ -12,17 +12,44 @@ router.get("/", function(req, res) {
     res.render("index", hbsObject);
   });
 });
+
+
+
 //burgers/insertone should post burger info user has entered
 router.get("/index", function(req, res) {
-  burger.insertOne(["burger_name", "devoured"
-  ], [
-      req.body.burger_name, false
+  burger.insertOne({
+    burger_name:req.body.burger_name,
+     devoured: req.body.devoured
       
-  ], function() {
+  }, function() {
     res.redirect("/index");
   });
 });
+
+router.post("/index", function(req, res) {
+  burger.insertOne({
+    burger_name:req.body.burger_name,
+     devoured: req.body.devoured
+      
+  }, function() {
+    res.redirect("/index");
+  });
+});
+
+
+
 //put updates the status of the uneated burgers
+router.put("/burgers/insertOne", function(req, res) {
+  var condition = "id = " + req.params.id;
+  console.log("condition", condition);
+  burger.updateOne({
+    devoured: req.body.devoured
+  }, condition, function() {
+    res.redirect("/index");
+  });
+});
+
+
 router.post("/burgers/insertOne", function(req, res) {
   var condition = "id = " + req.params.id;
   console.log("condition", condition);
@@ -32,6 +59,7 @@ router.post("/burgers/insertOne", function(req, res) {
     res.redirect("/index");
   });
 });
+
 router.put("/burgers/updateOne/:id", function(req, res) {
   var condition = "id = " + req.params.id;
   console.log("condition", condition);
@@ -41,6 +69,7 @@ router.put("/burgers/updateOne/:id", function(req, res) {
     res.redirect("/index");
   });
 });
+
 
 // export the router (controller) back to the server
 module.exports = router;
